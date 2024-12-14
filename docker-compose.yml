@@ -1,0 +1,6 @@
+﻿services:
+  boardgamesbot:
+    image: boardgamesbot
+    build:
+      context: .
+      dockerfile: BoardGamesBot/Dockerfile
