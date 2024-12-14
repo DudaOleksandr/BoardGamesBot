@@ -1,4 +1,4 @@
-﻿namespace BoardGamesBot.Interfaces;
+﻿namespace BoardGamesBot.Services.Interfaces;
 
 public interface IMessageService
 {

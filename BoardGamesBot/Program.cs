@@ -1,7 +1,11 @@
 ﻿using BoardGamesBot.Handlers.CommandHandlers;
+using BoardGamesBot.Handlers.CommandHandlers.Commands;
+using BoardGamesBot.Handlers.CommandHandlers.Interfaces;
 using BoardGamesBot.Handlers.UserStatesHandlers;
-using BoardGamesBot.Interfaces;
+using BoardGamesBot.Handlers.UserStatesHandlers.Interfaces;
+using BoardGamesBot.Handlers.UserStatesHandlers.UserStates;
 using BoardGamesBot.Services;
+using BoardGamesBot.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

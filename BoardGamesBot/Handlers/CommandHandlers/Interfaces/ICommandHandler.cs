@@ -1,7 +1,6 @@
-﻿using Telegram.Bot;
-using Telegram.Bot.Types;
+﻿using Telegram.Bot.Types;
 
-namespace BoardGamesBot.Interfaces;
+namespace BoardGamesBot.Handlers.CommandHandlers.Interfaces;
 
 public interface ICommandHandler
 {

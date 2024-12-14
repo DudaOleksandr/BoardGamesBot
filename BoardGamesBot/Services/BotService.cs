@@ -1,7 +1,7 @@
 ﻿using BoardGamesBot.Enums;
 using BoardGamesBot.Handlers.CommandHandlers;
 using BoardGamesBot.Handlers.UserStatesHandlers;
-using BoardGamesBot.Interfaces;
+using BoardGamesBot.Services.Interfaces;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Microsoft.Extensions.Hosting;
@@ -53,16 +53,16 @@ public class BotService : IHostedService
         var chatId = update.Message.Chat.Id;
         var message = update.Message.Text;
         
+        if (message.StartsWith('/'))
+        {
+            await _commandDispatcher.DispatchAsync(chatId, update, cancellationToken);
+            return;
+        }
+        
         var userState = _userStateService.GetState(chatId);
         if (userState != UserState.None)
         {
             await _userStateDispatcher.DispatchAsync(chatId, message, userState, cancellationToken);
-            return;
-        }
-
-        if (message.StartsWith('/'))
-        {
-            await _commandDispatcher.DispatchAsync(chatId, update, cancellationToken);
         }
     }
     

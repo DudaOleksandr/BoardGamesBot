@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BoardGamesBot.Services.Interfaces;
+using Microsoft.Extensions.Logging;
 using Telegram.Bot;
 
-namespace BoardGamesBot.Interfaces;
+namespace BoardGamesBot.Services;
 
 public class MessageService(ITelegramBotClient botClient, ILogger<MessageService> logger)
     : IMessageService

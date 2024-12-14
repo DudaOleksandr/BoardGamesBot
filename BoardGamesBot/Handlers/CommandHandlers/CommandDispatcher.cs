@@ -1,4 +1,5 @@
-﻿using BoardGamesBot.Interfaces;
+﻿using BoardGamesBot.Handlers.CommandHandlers.Interfaces;
+using BoardGamesBot.Services.Interfaces;
 using Telegram.Bot.Types;
 
 namespace BoardGamesBot.Handlers.CommandHandlers;
@@ -22,7 +23,11 @@ public class CommandDispatcher
     {
         if (update.Message?.Text == null) return;
 
-        var command = update.Message.Text.Split(' ')[0].TrimStart('/').ToLower();
+        var command = update.Message.Text
+            .Split(' ')[0]
+            .TrimStart('/')
+            .Replace("_", string.Empty)
+            .ToLower();
 
         if (_commandHandlers.TryGetValue(command, out var handler))
         {

@@ -1,7 +1,8 @@
 ﻿using BoardGamesBot.Enums;
-using BoardGamesBot.Interfaces;
+using BoardGamesBot.Handlers.UserStatesHandlers.Interfaces;
+using BoardGamesBot.Services.Interfaces;
 
-namespace BoardGamesBot.Handlers.UserStatesHandlers;
+namespace BoardGamesBot.Handlers.UserStatesHandlers.UserStates;
 
 public class AwaitingRoomNameStateHandler : IUserStateHandler
 {

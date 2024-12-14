@@ -1,8 +1,9 @@
 ﻿using BoardGamesBot.Enums;
-using BoardGamesBot.Interfaces;
+using BoardGamesBot.Handlers.CommandHandlers.Interfaces;
+using BoardGamesBot.Services.Interfaces;
 using Telegram.Bot.Types;
 
-namespace BoardGamesBot.Handlers.CommandHandlers;
+namespace BoardGamesBot.Handlers.CommandHandlers.Commands;
 
 public class JoinRoomCommandHandler : ICommandHandler
 {

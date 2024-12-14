@@ -1,6 +1,6 @@
 ﻿using BoardGamesBot.Enums;
 
-namespace BoardGamesBot.Interfaces;
+namespace BoardGamesBot.Handlers.UserStatesHandlers.Interfaces;
 
 public interface IUserStateHandler
 {

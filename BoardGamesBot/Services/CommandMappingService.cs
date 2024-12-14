@@ -1,4 +1,4 @@
-﻿using BoardGamesBot.Interfaces;
+﻿using BoardGamesBot.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 

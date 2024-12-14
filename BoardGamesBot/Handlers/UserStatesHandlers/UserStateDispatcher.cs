@@ -1,5 +1,5 @@
 ﻿using BoardGamesBot.Enums;
-using BoardGamesBot.Interfaces;
+using BoardGamesBot.Handlers.UserStatesHandlers.Interfaces;
 
 namespace BoardGamesBot.Handlers.UserStatesHandlers;
 

@@ -1,5 +1,5 @@
 ﻿using BoardGamesBot.Enums;
-using BoardGamesBot.Interfaces;
+using BoardGamesBot.Services.Interfaces;
 
 namespace BoardGamesBot.Services;
 
