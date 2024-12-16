@@ -4,6 +4,7 @@ using BoardGamesBot.Handlers.CommandHandlers.Interfaces;
 using BoardGamesBot.Handlers.UserStatesHandlers;
 using BoardGamesBot.Handlers.UserStatesHandlers.Interfaces;
 using BoardGamesBot.Handlers.UserStatesHandlers.UserStates;
+using BoardGamesBot.Infrastructure;
 using BoardGamesBot.Services;
 using BoardGamesBot.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,7 @@ var host = Host.CreateDefaultBuilder(args)
             logging.ClearProviders(); // Clear default providers
             logging.AddConsole();    // Add console logging
         });
+        services.AddInfrastructureServices(context.Configuration);
         ConfigureServices(services, context.Configuration);
     })
     .Build();

@@ -1,8 +1,4 @@
 ﻿{
-  "/start": "Hello and Welcome. My name is Board Games Bot.",
-  "/create_room": "Hello and Welcome. My name is Board Games Bot.",
-  "/join_room": "Hello and Welcome. My name is Board Games Bot.",
-  "/create_session": "Hello and Welcome. My name is Board Games Bot.",
   "default": "Something went wrong. Try again later.",
   "command_not_found" : "Command was not found. Please send another command or use `/help` to get list of available commands.",
   "unsupported_input" : "Unsupported input. Please send another command"
