@@ -12,5 +12,7 @@ public class Room : IDbEntity
     
     public DateTime CreatedAt { get; set; }
     
+    public ICollection<Event> Events { get; set; }
+    
     public ICollection<RoomMember> Members { get; set; }
 }

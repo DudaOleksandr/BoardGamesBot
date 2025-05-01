@@ -28,11 +28,24 @@ public class RoomService(AppDbContext dbContext) : IRoomService
             .FirstOrDefaultAsync(r => r.Id == roomId);
     }
 
+    public async Task<IEnumerable<Room?>> GetAllRoomsAsync()
+    {
+        return await dbContext.Rooms
+            .Include(r => r.Members).ToListAsync();
+    }
+
     public async Task<Room?> GetRoomByNameAsync(string roomName)
     {
         return await dbContext.Rooms
             .Include(r => r.Members)
             .FirstOrDefaultAsync(r => r.Name == roomName);
+    }
+
+    public async Task<Room?> GetRoomByUserAsync(long userId)
+    {
+        return await dbContext.Rooms
+            .Include(r => r.Members)
+            .FirstOrDefaultAsync(r => r.Members.Any(m=>m.UserId == userId));
     }
 
     public async Task AddMemberToRoomAsync(int roomId, long userId)
@@ -51,4 +64,6 @@ public class RoomService(AppDbContext dbContext) : IRoomService
         dbContext.RoomMembers.Add(member);
         await dbContext.SaveChangesAsync();
     }
+    //Write method to Get Room by members considering we got member id
+    
 }

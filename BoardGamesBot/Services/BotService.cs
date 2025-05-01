@@ -1,5 +1,6 @@
 ﻿using BoardGamesBot.Enums;
 using BoardGamesBot.Handlers.CommandHandlers;
+using BoardGamesBot.Handlers.QueryHandler;
 using BoardGamesBot.Handlers.UserStatesHandlers;
 using BoardGamesBot.Services.Interfaces;
 using Telegram.Bot;
@@ -13,18 +14,21 @@ public class BotService : IHostedService
 {
     private readonly ILogger<BotService> _logger;
     private readonly ITelegramBotClient _botClient;
+    private readonly CallbackQueryDispatcher _callbackQueryDispatcher;
     private readonly CommandDispatcher  _commandDispatcher;
     private readonly UserStateDispatcher _userStateDispatcher;
     private readonly IUserStateService _userStateService;
 
     public BotService(ILogger<BotService> logger, CommandDispatcher commandDispatcher,
-        IUserStateService userStateService, UserStateDispatcher userStateDispatcher, ITelegramBotClient botClient)
+        IUserStateService userStateService, UserStateDispatcher userStateDispatcher,
+        ITelegramBotClient botClient, CallbackQueryDispatcher callbackQueryDispatcher)
     {
         _logger = logger;
         _commandDispatcher = commandDispatcher;
         _userStateService = userStateService;
         _userStateDispatcher = userStateDispatcher;
         _botClient = botClient;
+        _callbackQueryDispatcher = callbackQueryDispatcher;
     }
     
     public Task StartAsync(CancellationToken cancellationToken)
@@ -48,6 +52,11 @@ public class BotService : IHostedService
     private async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update,
         CancellationToken cancellationToken)
     {
+        if (update.CallbackQuery != null)
+        {
+            await _callbackQueryDispatcher.DispatchAsync(update, cancellationToken);
+        }
+        
         if (update.Message?.Text is null) return;
         
         var chatId = update.Message.Chat.Id;

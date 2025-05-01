@@ -1,6 +1,9 @@
 ﻿using BoardGamesBot.Handlers.CommandHandlers;
 using BoardGamesBot.Handlers.CommandHandlers.Commands;
 using BoardGamesBot.Handlers.CommandHandlers.Interfaces;
+using BoardGamesBot.Handlers.QueryHandler;
+using BoardGamesBot.Handlers.QueryHandler.CallbackHandlers;
+using BoardGamesBot.Handlers.QueryHandler.Interfaces;
 using BoardGamesBot.Handlers.UserStatesHandlers;
 using BoardGamesBot.Handlers.UserStatesHandlers.Interfaces;
 using BoardGamesBot.Handlers.UserStatesHandlers.UserStates;
@@ -48,6 +51,11 @@ static void ConfigureServices(IServiceCollection services, IConfiguration config
     services.AddSingleton<ICommandHandler, CreateRoomCommandHandler>();
     services.AddSingleton<ICommandHandler, JoinRoomCommandHandler>();
     services.AddSingleton<ICommandHandler, HelpCommandHandler>();
+    services.AddSingleton<ICommandHandler, CreateEventCommandHandler>();
+    services.AddSingleton<IUserStateHandler, AwaitingEventDetailsStateHandler>();
+    services.AddSingleton<ICommandHandler, ViewEventsCommandHandler>();
+    services.AddSingleton<ICallbackQueryHandler, JoinEventCallbackHandler>();
+    services.AddSingleton<CallbackQueryDispatcher>();
     services.AddSingleton<CommandDispatcher>();
     services.AddSingleton<IUserStateHandler, AwaitingRoomNameStateHandler>();
     services.AddSingleton<UserStateDispatcher>();

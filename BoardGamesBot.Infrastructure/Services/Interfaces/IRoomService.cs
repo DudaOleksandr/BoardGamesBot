@@ -6,6 +6,8 @@ public interface IRoomService
 {
     Task<Room> CreateRoomAsync(string name, long creatorId);
     Task<Room?> GetRoomAsync(int roomId);
+    Task<IEnumerable<Room?>> GetAllRoomsAsync();
     Task<Room?> GetRoomByNameAsync(string roomName);
+    Task<Room?> GetRoomByUserAsync(long userId);
     Task AddMemberToRoomAsync(int roomId, long userId);
 }

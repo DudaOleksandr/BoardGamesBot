@@ -7,5 +7,6 @@ public enum UserState
      None,
      AwaitingCreateRoomName,
      AwaitingJoinRoomName,
+     AwaitingEventDetails,
      AwaitingRoomDate,
 }
